@@ -1,0 +1,32 @@
+#!/bin/bash
+#Set up a directory structure for C++ projects using cmake
+
+#Create directories
+mkdir -p ./include
+mkdir -p ./src
+mkdir -p ./build
+
+#Create CMakeLists.txt
+cat > ./CMakeLists.txt <<EOL
+cmake_minimum_required(VERSION 3.13.4)
+project(INSERT_PROJECT_NAME)
+
+#Bring headers into the project
+include_directories(include)
+
+#Create list of source files and add them to variable SOURCES
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(INSERT_EXECUTABLE_NAME \${SOURCES})
+EOL
+
+#Create main.cpp
+cat > ./src/main.cpp <<EOL
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[]){
+    cout << "Hello World!" << endl;
+    return 0;
+}
+EOL
