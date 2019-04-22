@@ -33,3 +33,9 @@ int main(int argc, char *argv[]){
     return 0;
 }
 EOL
+
+#Create .gitignore
+cat > ./.gitignore << EOL
+CMakeLists.txt
+build
+EOL
